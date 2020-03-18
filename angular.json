@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "trabajo-nivelador"
+    }
+  },
+  "defaultProject": "trabajo-nivelador",
+  "cli": {
+    "analytics": false
+  }
 }
