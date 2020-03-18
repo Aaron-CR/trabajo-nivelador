@@ -9,8 +9,8 @@ import { BuscadorComponent } from './pages/buscador/buscador.component';
 const routes: Routes = [
   { path: 'buscador', component: BuscadorComponent },
   { path: 'detalle', component: DetalleComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'index', component: IndexComponent },
+  { path: 'home', component: HomeComponent, data: {title: 'home', toolbar: true}},
+  { path: 'index', component: IndexComponent, data: {title: 'index', toolbar: false} },
   { path: '404', component: Page404Component },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: '404', pathMatch: 'full' }
