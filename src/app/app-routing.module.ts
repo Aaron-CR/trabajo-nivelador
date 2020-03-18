@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'index', component: IndexComponent },
   { path: '404', component: Page404Component },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
 

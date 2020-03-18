@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Empresa } from 'src/app/shared/models/empresa.model';
+import { EmpresaService } from 'src/app/core/services/empresa.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  empresas: Empresa[] = [];
+  constructor(public empresaService: EmpresaService) { }
 
   ngOnInit(): void {
+    this.empresaService.getEmpresas()
+      .subscribe(products => { this.empresas = products; });
   }
+
+  // TODO: Agregar metodo VER PAGINA
 
 }
