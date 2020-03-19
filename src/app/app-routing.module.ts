@@ -1,3 +1,5 @@
+import { TablaNoticiaComponent } from './pages/admin/noticia/tabla-noticia/tabla-noticia.component';
+import { TablaEmpresaComponent } from './pages/admin/empresa/tabla-empresa/tabla-empresa.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,8 +14,10 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, data: {title: 'home', toolbar: true}},
   { path: 'index', component: IndexComponent, data: {title: 'index', toolbar: false} },
   { path: '404', component: Page404Component },
+  { path: 'admin/empresas', component: TablaEmpresaComponent},
+  { path: 'admin/noticias', component: TablaNoticiaComponent},
   { path: '', redirectTo: 'index', pathMatch: 'full' },
-  { path: '**', redirectTo: '404', pathMatch: 'full' }
+  { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];
 
 @NgModule({
