@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Noticia } from 'src/app/shared/models/noticia.model';
-import { DialogService } from 'src/app/core/services/dialog.service';
-import { FormNoticiaComponent } from '../form-noticia/form-noticia.component';
-import { MatDialog } from '@angular/material/dialog';
-import { NoticiaService } from 'src/app/core/services/noticia.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Empresa } from 'src/app/shared/models/empresa.model';
+import { Noticia } from 'src/app/shared/models/noticia.model';
+import { NoticiaService } from 'src/app/core/services/noticia.service';
+import { DialogService } from 'src/app/core/services/dialog.service';
+import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { FormNoticiaComponent } from '../form-noticia/form-noticia.component';
 
 @Component({
   selector: 'app-tabla-noticia',
@@ -15,10 +15,9 @@ import { Empresa } from 'src/app/shared/models/empresa.model';
   styleUrls: ['./tabla-noticia.component.css']
 })
 export class TablaNoticiaComponent implements OnInit {
-
   public title = 'Tabla de noticias';
-  public displayedColumns: string[] = ['id', 'denominacion', 'domicilio', 'email', 'horario',
-  'latitud', 'longitud', 'quienesSomos', 'telefono' ];
+  public displayedColumns: string[] = ['titulo', 'resumen', 'imagen', 'publicada',
+    'fechaPublicacion', 'idEmpresa'];
   public dataSource: MatTableDataSource<Noticia> = new MatTableDataSource();
   public empresas: Empresa[];
 
@@ -36,7 +35,7 @@ export class TablaNoticiaComponent implements OnInit {
   }
 
   getAll() {
-    this.noticiaService.getNoticias().subscribe( res => {
+    this.noticiaService.getCollection().subscribe(res => {
       this.dataSource.data = res;
       this.notifyTable();
     });
@@ -62,12 +61,12 @@ export class TablaNoticiaComponent implements OnInit {
   }
 
   create(noticia: Noticia) {
-    this.noticiaService.createNoticias(noticia);
+    this.noticiaService.create(noticia);
     this.success('Añadido!', 'Se ha añadido correctamente.');
   }
 
   update(noticia: Noticia) {
-    this.noticiaService.updateNoticias(noticia.id, noticia);
+    this.noticiaService.update(noticia);
     this.success('Actualizado!', 'Se ha actualizado correctamente.');
   }
 

@@ -13,7 +13,7 @@ export class IndexComponent implements OnInit {
   constructor(public empresaService: EmpresaService) { }
 
   ngOnInit(): void {
-    this.empresaService.getEmpresas()
+    this.empresaService.getCollection()
       .subscribe(products => { this.empresas = products; });
   }
 

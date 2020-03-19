@@ -47,10 +47,10 @@ export class FormNoticiaComponent implements OnInit {
   }
 
   getAllEmpresas() {
-    this.empresaService.getEmpresas().subscribe( res => {
-        this.empresas = res;
-        console.log(this.empresas);
-      });
+    this.empresaService.getCollection().subscribe(res => {
+      this.empresas = res;
+      console.log(this.empresas);
+    });
   }
 
   setAction() {
