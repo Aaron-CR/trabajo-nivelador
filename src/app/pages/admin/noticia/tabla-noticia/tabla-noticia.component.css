@@ -1,0 +1,18 @@
+.table-card {
+    margin: 24px auto;
+    width: 90%;
+}
+
+.mat-form-field {
+    width: 220px;
+}
+
+.mat-icon {
+    margin-right: 4px;
+}
+
+.mat-dialog-title {
+    color: #3f51b5!important;
+    font-weight: bold;
+    font-size: 16px;
+}

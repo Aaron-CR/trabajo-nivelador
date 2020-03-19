@@ -8,7 +8,8 @@ import { map } from 'rxjs/operators';
 })
 export class EmpresaService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) {
+  }
 
   getEmpresas() {
     return this.firestore.collection<Empresa>('empresas').snapshotChanges()

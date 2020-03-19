@@ -34,7 +34,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatRippleModule } from '@angular/material/core';
+import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
 
 // Popups & Modals
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -51,6 +51,7 @@ const materialComponent = [
   MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -96,6 +97,7 @@ const materialComponent = [
   ],
   exports: [
     materialComponent
-  ]
+  ],
+  providers: [ MatDatepickerModule ]
 })
 export class MaterialModule { }

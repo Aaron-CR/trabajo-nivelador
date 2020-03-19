@@ -17,6 +17,7 @@ import { TablaEmpresaComponent } from './pages/admin/empresa/tabla-empresa/tabla
 import { FormEmpresaComponent } from './pages/admin/empresa/form-empresa/form-empresa.component';
 import { FormNoticiaComponent } from './pages/admin/noticia/form-noticia/form-noticia.component';
 import { TablaNoticiaComponent } from './pages/admin/noticia/tabla-noticia/tabla-noticia.component';
+import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 
 // Firebase services and enviorment module
 import { AngularFireModule } from '@angular/fire';
@@ -31,7 +32,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material module
 import { MaterialModule } from './core/material/material.module';
-import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 
 // Formulario
 import { ReactiveFormsModule } from '@angular/forms';
