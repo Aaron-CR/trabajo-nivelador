@@ -31,7 +31,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material module
 import { MaterialModule } from './core/material/material.module';
+import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 
+// Formulario
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { MaterialModule } from './core/material/material.module';
     TablaEmpresaComponent,
     FormEmpresaComponent,
     FormNoticiaComponent,
-    TablaNoticiaComponent
+    TablaNoticiaComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,8 @@ import { MaterialModule } from './core/material/material.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     AngularFirestore,
