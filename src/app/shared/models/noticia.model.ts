@@ -1,5 +1,6 @@
-export class Noticia {
-  id: string;
+import { Base } from './base';
+
+export class Noticia extends Base {
   titulo: string;
   resumen: string;
   imagen: string;

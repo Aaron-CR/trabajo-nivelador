@@ -1,5 +1,6 @@
-export class Empresa {
-  id: string;
+import { Base } from './base';
+
+export class Empresa extends Base {
   denominacion: string;
   domicilio: string;
   email: string;
