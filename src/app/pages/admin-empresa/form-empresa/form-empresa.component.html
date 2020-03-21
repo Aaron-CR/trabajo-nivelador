@@ -9,7 +9,7 @@
     <input hidden formControlName="id">
 
     <mat-form-field class="pb-3 w-100">
-      <input matInput cdk-focus-start placeholder="{{action}} Denominacion" formControlName="denominacion">
+      <input matInput cdkFocusRegionstart placeholder="{{action}} Denominacion" formControlName="denominacion">
       <mat-error *ngIf="errorHandling('denominacion', 'required')">
         Debe proporcionar una<strong> denominacion.</strong>
       </mat-error>

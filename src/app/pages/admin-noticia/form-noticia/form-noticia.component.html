@@ -9,7 +9,7 @@
     <input hidden formControlName="id">
 
     <mat-form-field class="pb-3 w-100">
-      <input matInput cdk-focus-start placeholder="{{action}} Titulo" formControlName="titulo">
+      <input matInput cdkFocusRegionstart placeholder="{{action}} Titulo" formControlName="titulo">
       <mat-error *ngIf="errorHandling('titulo', 'required')">
         Debe proporcionar un<strong> título.</strong>
       </mat-error>
