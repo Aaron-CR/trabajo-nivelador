@@ -1,7 +1,7 @@
-import { Empresa } from 'src/app/shared/models/empresa.model';
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Empresa } from 'src/app/shared/models/empresa.model';
 
 @Component({
   selector: 'app-form-empresa',
@@ -9,15 +9,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./form-empresa.component.css']
 })
 export class FormEmpresaComponent implements OnInit {
-
   public localData: Empresa;
   public action: string;
   public formEmpresa: FormGroup;
 
   constructor(
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: Empresa,
     public dialogRef: MatDialogRef<FormEmpresaComponent>,
-    public formBuilder: FormBuilder,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Empresa
+    public formBuilder: FormBuilder
   ) {
     this.localData = { ...data };
   }
@@ -56,5 +55,4 @@ export class FormEmpresaComponent implements OnInit {
   public errorHandling = (control: string, error: string) => {
     return this.formEmpresa.controls[control].hasError(error);
   }
-
 }

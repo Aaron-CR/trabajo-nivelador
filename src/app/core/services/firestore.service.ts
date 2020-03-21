@@ -7,7 +7,6 @@ import { Base } from 'src/app/shared/models/base';
   providedIn: 'root'
 })
 export class FirestoreService<T extends Base> {
-
   protected endpoint;
 
   constructor(private firestore: AngularFirestore) { }

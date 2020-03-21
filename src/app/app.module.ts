@@ -1,23 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// App routing modules
+// App modules
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './core/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 // App components
 import { AppComponent } from './app.component';
-import { Page404Component } from './pages/page404/page404.component';
-import { IndexComponent } from './pages/index/index.component';
-import { BuscadorComponent } from './pages/buscador/buscador.component';
-import { DetalleComponent } from './pages/detalle/detalle.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IndexComponent } from './pages/index/index.component';
+import { DetalleComponent } from './pages/detalle/detalle.component';
+import { Page404Component } from './pages/page404/page404.component';
+import { BuscadorComponent } from './pages/buscador/buscador.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { TablaEmpresaComponent } from './pages/admin/empresa/tabla-empresa/tabla-empresa.component';
-import { FormEmpresaComponent } from './pages/admin/empresa/form-empresa/form-empresa.component';
-import { FormNoticiaComponent } from './pages/admin/noticia/form-noticia/form-noticia.component';
-import { TablaNoticiaComponent } from './pages/admin/noticia/tabla-noticia/tabla-noticia.component';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
+import { AdminEmpresaComponent } from './pages/admin-empresa/admin-empresa.component';
+import { AdminNoticiaComponent } from './pages/admin-noticia/admin-noticia.component';
+import { FormEmpresaComponent } from './pages/admin-empresa/form-empresa/form-empresa.component';
+import { FormNoticiaComponent } from './pages/admin-noticia/form-noticia/form-noticia.component';
 
 // Firebase services and enviorment module
 import { AngularFireModule } from '@angular/fire';
@@ -30,12 +33,6 @@ import { EmpresaService } from './core/services/empresa.service';
 import { NoticiaService } from './core/services/noticia.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Material module
-import { MaterialModule } from './core/material/material.module';
-
-// Formulario
-import { ReactiveFormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,11 +43,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    TablaEmpresaComponent,
     FormEmpresaComponent,
     FormNoticiaComponent,
-    TablaNoticiaComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    AdminEmpresaComponent,
+    AdminNoticiaComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +56,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     AngularFirestore,

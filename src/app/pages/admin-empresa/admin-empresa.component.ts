@@ -6,17 +6,16 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormEmpresaComponent } from '../form-empresa/form-empresa.component';
+import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 
 @Component({
-  selector: 'app-tabla-empresa',
-  templateUrl: './tabla-empresa.component.html',
-  styleUrls: ['./tabla-empresa.component.css']
+  selector: 'app-admin-empresa',
+  templateUrl: './admin-empresa.component.html',
+  styleUrls: ['./admin-empresa.component.css']
 })
-export class TablaEmpresaComponent implements OnInit {
+export class AdminEmpresaComponent implements OnInit {
   public title = 'Tabla de empresas';
-  public displayedColumns: string[] = ['denominacion', 'domicilio', 'email', 'horario',
-    'latitud', 'longitud', 'quienesSomos', 'telefono'];
+  public displayedColumns: string[] = ['denominacion', 'domicilio', 'email', 'telefono'];
   public dataSource: MatTableDataSource<Empresa> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -83,5 +82,4 @@ export class TablaEmpresaComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

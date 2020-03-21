@@ -1,21 +1,21 @@
-import { TablaNoticiaComponent } from './pages/admin/noticia/tabla-noticia/tabla-noticia.component';
-import { TablaEmpresaComponent } from './pages/admin/empresa/tabla-empresa/tabla-empresa.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { Page404Component } from './pages/page404/page404.component';
 import { IndexComponent } from './pages/index/index.component';
+import { Page404Component } from './pages/page404/page404.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { BuscadorComponent } from './pages/buscador/buscador.component';
+import { AdminEmpresaComponent } from './pages/admin-empresa/admin-empresa.component';
+import { AdminNoticiaComponent } from './pages/admin-noticia/admin-noticia.component';
 
 const routes: Routes = [
+  { path: 'index', component: IndexComponent, data: { visible: false } },
+  { path: 'admin/empresas', component: AdminEmpresaComponent, data: { visible: false } },
+  { path: 'admin/noticias', component: AdminNoticiaComponent, data: { visible: false } },
+  { path: 'home', component: HomeComponent },
   { path: 'buscador', component: BuscadorComponent },
   { path: 'detalle', component: DetalleComponent },
-  { path: 'home', component: HomeComponent, data: {title: 'home', toolbar: true}},
-  { path: 'index', component: IndexComponent, data: {title: 'index', toolbar: false} },
   { path: '404', component: Page404Component },
-  { path: 'admin/empresas', component: TablaEmpresaComponent},
-  { path: 'admin/noticias', component: TablaNoticiaComponent},
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];

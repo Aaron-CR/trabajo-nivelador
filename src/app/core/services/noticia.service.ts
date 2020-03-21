@@ -6,7 +6,5 @@ import { FirestoreService } from './firestore.service';
   providedIn: 'root'
 })
 export class NoticiaService extends FirestoreService<Noticia> {
-
   protected endpoint = 'noticias';
-
 }

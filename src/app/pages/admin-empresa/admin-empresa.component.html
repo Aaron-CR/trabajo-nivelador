@@ -1,20 +1,21 @@
 <app-toolbar></app-toolbar>
-<mat-card class="table-card">
-  <mat-card-title>{{title}}</mat-card-title>
+<mat-card class="container col-11 my-4">
+  <mat-card-title> {{ title }} </mat-card-title>
   <!-- Row Start -->
-  <div class="flex-container space-between">
+  <div class="d-flex justify-content-between">
     <!-- Barra de busqueda -->
     <div>
       <mat-form-field>
-        <mat-label>Buscar</mat-label>
+        <mat-label> Buscar </mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por {{ displayedColumns }}">
-        <mat-icon matSuffix>search</mat-icon>
+        <mat-icon matSuffix> search </mat-icon>
       </mat-form-field>
     </div>
     <!-- Boton añadir -->
     <div>
       <button mat-raised-button color="primary" (click)="onSubmit({})">
-        <mat-icon [inline]="true">add</mat-icon>Añadir
+        <mat-icon [inline]="true" class="mr-2"> add </mat-icon>
+        Añadir
       </button>
     </div>
   </div>
@@ -24,8 +25,9 @@
 
       <!-- Dynamic column -->
       <ng-container *ngFor="let def of displayedColumns" [matColumnDef]="def">
-        <mat-header-cell mat-sort-header *matHeaderCellDef> {{ def | titlecase }} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row[def]}} </mat-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> {{ def | titlecase }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row[def] }} </mat-cell>
       </ng-container>
 
       <!-- Action column -->
@@ -34,11 +36,11 @@
         <mat-cell *matCellDef="let row">
           <!-- Edit Button -->
           <button mat-button mat-icon-button matTooltip="Editar" (click)="onSubmit(row)">
-            <mat-icon color="primary">mode_edit</mat-icon>
+            <mat-icon color="primary"> mode_edit </mat-icon>
           </button>
           <!-- Delete Button -->
           <button mat-button mat-icon-button matTooltip="Eliminar" (click)="onDelete(row)">
-            <mat-icon color="warn">delete</mat-icon>
+            <mat-icon color="warn"> delete </mat-icon>
           </button>
         </mat-cell>
       </ng-container>

@@ -1,6 +1,6 @@
-import { Component , OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { filter, map, mergeMap} from 'rxjs/operators';
+import { filter, map, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,12 @@ import { filter, map, mergeMap} from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  @Input() visible: boolean;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-
-  title = 'trabajo-nivelador';
-
-  @Input() visible: Boolean;
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.router.events
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
         filter(event => event instanceof NavigationEnd),
         map(() => this.activatedRoute),
         map(route => {
-          while (route.firstChild){
+          while (route.firstChild) {
             route = route.firstChild;
           }
           return route;
@@ -32,17 +32,13 @@ export class AppComponent implements OnInit {
         mergeMap(route => route.data),
       )
       .subscribe(event => {
-        this.showToolbar(event.toolbar);
+        this.showHeaderandFooter(event.visible);
       });
   }
 
-  showToolbar(event){
-    if (event === false){
-      this.visible = false;
-    }else if (event === true){
-      this.visible = true;
-    }else {
-      this.visible = this.visible;
-    }
+  showHeaderandFooter(event) {
+    event === false
+      ? (this.visible = false)
+      : (this.visible = true);
   }
 }

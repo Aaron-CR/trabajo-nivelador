@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 // Form Controls
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -34,7 +33,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
 
 // Popups & Modals
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -47,11 +46,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
-const materialComponent = [
-  MatAutocompleteModule,
+@NgModule({
+  exports: [
+    // Form Controls
+    MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -89,15 +89,6 @@ const materialComponent = [
     MatPaginatorModule,
     MatSortModule,
     MatTableModule
-];
-
-@NgModule({
-  imports: [
-    materialComponent
-  ],
-  exports: [
-    materialComponent
-  ],
-  providers: [ MatDatepickerModule ]
+  ]
 })
 export class MaterialModule { }

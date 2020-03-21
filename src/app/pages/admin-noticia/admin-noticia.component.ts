@@ -7,17 +7,16 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormNoticiaComponent } from '../form-noticia/form-noticia.component';
+import { FormNoticiaComponent } from './form-noticia/form-noticia.component';
 
 @Component({
-  selector: 'app-tabla-noticia',
-  templateUrl: './tabla-noticia.component.html',
-  styleUrls: ['./tabla-noticia.component.css']
+  selector: 'app-admin-noticia',
+  templateUrl: './admin-noticia.component.html',
+  styleUrls: ['./admin-noticia.component.css']
 })
-export class TablaNoticiaComponent implements OnInit {
+export class AdminNoticiaComponent implements OnInit {
   public title = 'Tabla de noticias';
-  public displayedColumns: string[] = ['titulo', 'resumen', 'imagen', 'publicada',
-    'fechaPublicacion', 'idEmpresa'];
+  public displayedColumns: string[] = ['titulo', 'publicada', 'fechaPublicacion', 'idEmpresa'];
   public dataSource: MatTableDataSource<Noticia> = new MatTableDataSource();
   public empresas: Empresa[];
 
@@ -90,5 +89,4 @@ export class TablaNoticiaComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

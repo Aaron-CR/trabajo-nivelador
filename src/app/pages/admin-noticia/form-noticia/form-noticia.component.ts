@@ -1,7 +1,7 @@
-import { EmpresaService } from './../../../../core/services/empresa.service';
 import { Component, OnInit, Inject, Optional } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EmpresaService } from '../../../core/services/empresa.service';
 import { Noticia } from 'src/app/shared/models/noticia.model';
 import { Empresa } from 'src/app/shared/models/empresa.model';
 
@@ -11,17 +11,15 @@ import { Empresa } from 'src/app/shared/models/empresa.model';
   styleUrls: ['./form-noticia.component.css']
 })
 export class FormNoticiaComponent implements OnInit {
-
   public localData: Noticia;
   public action: string;
   public formNoticia: FormGroup;
   public empresas: Empresa[];
 
-
   constructor(
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: Noticia,
     public dialogRef: MatDialogRef<FormNoticiaComponent>,
     public formBuilder: FormBuilder,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Noticia,
     public empresaService: EmpresaService
   ) {
     this.localData = { ...data };
@@ -68,5 +66,4 @@ export class FormNoticiaComponent implements OnInit {
   public errorHandling = (control: string, error: string) => {
     return this.formNoticia.controls[control].hasError(error);
   }
-
 }

@@ -6,10 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  @Input() visible: boolean;
 
   constructor() { }
-
-  @Input() visible: Boolean;
 
   ngOnInit(): void {
   }

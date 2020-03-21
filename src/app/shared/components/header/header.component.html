@@ -1,4 +1,4 @@
-<header *ngIf = "visible">
+<header *ngIf="visible">
   <div class="container top-sect">
     <div class="navbar-header">
       <h1 class="navbar-brand">
@@ -14,18 +14,16 @@
     </div>
   </div>
 
-  <div id="stuck_container" class="stuck_container">
-    <div class="container">
-
-      <form class="search-form" action="search.php" method="GET" accept-charset="utf-8">
+  <div class="stuck_container ml-auto">
+    <div class="container ">
+      <form class="search-form float-right">
         <label class="search-form_label">
-          <input class="search-form_input" type="text" name="s" autocomplete="off" placeholder="" />
+          <input class="search-form_input" type="text" placeholder="" />
           <span class="search-form_liveout"></span>
         </label>
         <button class="search-form_submit fa-search" type="submit"></button>
       </form>
-
     </div>
-
   </div>
+
 </header>

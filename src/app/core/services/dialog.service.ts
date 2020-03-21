@@ -34,5 +34,4 @@ export class DialogService {
       cancelButtonColor: '#F44336'
     });
   }
-
 }
