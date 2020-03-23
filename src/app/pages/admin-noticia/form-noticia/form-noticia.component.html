@@ -29,6 +29,29 @@
       </mat-error>
     </mat-form-field>
 
+    <!--TinyMCE-->
+    <mat-card class="form-element">
+      <!-- <h1>TinyMCE 5 Angular Demo</h1> -->
+      <editor [formControlName]="'cuerpo'" [init]="{
+           height: 500,
+           menubar: true,
+              plugins: [
+                  'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                  'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                  'table emoticons template paste help'
+              ],
+                  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                  'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+                  'forecolor backcolor emoticons | help',
+              menu: {
+                  favs: {title: 'Menu', items: 'code visualaid | searchreplace | spellchecker | emoticons'}
+                  }
+                  
+      }"></editor>
+
+    </mat-card>
+    <!--TinyMCE -->
+
     <mat-form-field class="pb-3 w-100">
       <mat-label>Contenido HTML</mat-label>
       <input matInput placeholder="{{action}} Contenido HTML" formControlName="contenidoHTML">

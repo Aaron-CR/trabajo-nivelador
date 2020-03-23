@@ -33,6 +33,10 @@ import { EmpresaService } from './core/services/empresa.service';
 import { NoticiaService } from './core/services/noticia.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+//tinyMCE
+import { EditorModule} from '@tinymce/tinymce-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +61,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    EditorModule
   ],
   providers: [
     AngularFirestore,
