@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Empresa } from 'src/app/shared/models/empresa.model';
 import { Noticia } from 'src/app/shared/models/noticia.model';
 import { NoticiaService } from 'src/app/core/services/noticia.service';
+import { EmpresaService } from 'src/app/core/services/empresa.service';
 import { DialogService } from 'src/app/core/services/dialog.service';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
@@ -25,23 +26,31 @@ export class AdminNoticiaComponent implements OnInit {
 
   constructor(
     public noticiaService: NoticiaService,
+    public empresaService: EmpresaService,
     public dialogService: DialogService,
     public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
-    this.getAll();
+    this.getNoticias();
+    this.getEmpresas();
   }
 
-  getAll() {
+  getNoticias() {
     this.noticiaService.getCollection().subscribe(res => {
       this.dataSource.data = res;
       this.notifyTable();
     });
   }
 
+  getEmpresas() {
+    this.empresaService.getCollection().subscribe(res => {
+      this.empresas = res;
+    });
+  }
+
   onSubmit(object: any) {
-    this.dialog.open(FormNoticiaComponent, { disableClose: true, data: object, width: '80%' })
+    this.dialog.open(FormNoticiaComponent, { disableClose: true, data: { data: object, empresas: this.empresas }, width: '80%' })
       .afterClosed().subscribe(result => {
         if (result.event === 'Añadir') {
           this.create(result.data);

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 // App modules
@@ -6,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './core/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 // App components
 import { AppComponent } from './app.component';
@@ -28,14 +30,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
-// Services and guards
+// Services guards and pipes
 import { EmpresaService } from './core/services/empresa.service';
 import { NoticiaService } from './core/services/noticia.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-//tinyMCE
-import { EditorModule} from '@tinymce/tinymce-angular';
+import { EmpresaPipe } from './shared/pipes/empresa.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +49,8 @@ import { EditorModule} from '@tinymce/tinymce-angular';
     FormNoticiaComponent,
     ToolbarComponent,
     AdminEmpresaComponent,
-    AdminNoticiaComponent
+    AdminNoticiaComponent,
+    EmpresaPipe
   ],
   imports: [
     BrowserModule,

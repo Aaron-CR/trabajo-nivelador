@@ -47,7 +47,7 @@
         <mat-form-field class="pb-3 w-100">
           <mat-label>Empresa</mat-label>
           <mat-select formControlName="idEmpresa">
-            <mat-option *ngFor="let empresa of empresas" [value]="empresa.id">
+            <mat-option *ngFor="let empresa of localData.empresas" [value]="empresa.id">
               {{empresa.denominacion}}
             </mat-option>
           </mat-select>
