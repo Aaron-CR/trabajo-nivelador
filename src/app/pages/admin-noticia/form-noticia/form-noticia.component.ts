@@ -39,9 +39,15 @@ export class FormNoticiaComponent implements OnInit {
       imagen: [this.localData.imagen, [Validators.required]],
       contenidoHTML: [this.localData.contenidoHTML, [Validators.required]],
       publicada: [this.localData.publicada, [Validators.required]],
-      fechaPublicacion: [this.localData.fechaPublicacion, [Validators.required]],
+      fechaPublicacion: [this.fechaPublicacion, [Validators.required]],
       idEmpresa: [this.localData.idEmpresa, [Validators.required]]
     });
+  }
+
+  get fechaPublicacion() {
+    return this.localData.fechaPublicacion === undefined
+      ? new Date()
+      : new Date(this.localData.fechaPublicacion.toMillis());
   }
 
   getAllEmpresas() {

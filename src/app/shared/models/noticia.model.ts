@@ -6,6 +6,6 @@ export class Noticia extends Base {
   imagen: string;
   contenidoHTML: string;
   publicada: string;
-  fechaPublicacion: Date;
+  fechaPublicacion: any;
   idEmpresa: string;
 }
