@@ -8,28 +8,54 @@
   <form [formGroup]="formNoticia" novalidate>
     <input hidden formControlName="id">
 
-    <mat-form-field class="pb-3 w-100">
-      <input matInput cdkFocusRegionstart placeholder="{{action}} Titulo" formControlName="titulo">
-      <mat-error *ngIf="errorHandling('titulo', 'required')">
-        Debe proporcionar un<strong> título.</strong>
-      </mat-error>
-    </mat-form-field>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <input matInput cdkFocusRegionstart placeholder="{{action}} Titulo" formControlName="titulo">
+          <mat-error *ngIf="errorHandling('titulo', 'required')">
+            Debe proporcionar un<strong> título.</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <input matInput type="email" placeholder="{{action}} Imagen" formControlName="imagen">
+          <mat-error *ngIf="errorHandling('imagen', 'required')">
+            Debe proporcionar una <strong> imagen.</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
 
     <mat-form-field class="pb-3 w-100">
-      <input matInput placeholder="{{action}} Resumen" formControlName="resumen">
+      <textarea matInput placeholder="{{action}} Resumen" formControlName="resumen"></textarea>
       <mat-error *ngIf="errorHandling('resumen', 'required')">
         Debe proporcionar un<strong> resumen.</strong>
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="pb-3 w-100">
-      <input matInput type="email" placeholder="{{action}} Imagen" formControlName="imagen">
-      <mat-error *ngIf="errorHandling('imagen', 'required')">
-        Debe proporcionar una <strong> imagen.</strong>
-      </mat-error>
-    </mat-form-field>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <mat-label>Fecha de publicacion</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fechaPublicacion">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <mat-label>Empresa</mat-label>
+          <mat-select formControlName="idEmpresa">
+            <mat-option *ngFor="let empresa of empresas" [value]="empresa.id">
+              {{empresa.denominacion}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
 
-    <editor formControlName="contenidoHTML" [init]="{
+    <editor formControlName="contenidoHTML" apiKey="uqgqwjc63sczqisie34glbnvj8h8a4ouyryuyt54zyxzld1p" [init]="{
            height: 500,
            menubar: true,
               plugins: [
@@ -45,32 +71,17 @@
                   }
       }"></editor>
 
-    <mat-form-field class="mr-5">
+    <mat-form-field class="pt-3 pb-3">
       <mat-label>¿Publicar?</mat-label>
-      <select matNativeControl formControlName="publicada">
-        <option value="y">Si</option>
-        <option value="n">No</option>
-      </select>
-    </mat-form-field>
-
-    <mat-form-field class="mr-5">
-      <mat-label>Fecha de publicacion</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="fechaPublicacion">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field class="mr-5">
-      <mat-label>Empresa</mat-label>
-      <select matNativeControl formControlName="idEmpresa">
-        <mat-option *ngFor="let empresa of empresas" [value]="empresa.id">
-          {{empresa.denominacion}}
-        </mat-option>
-      </select>
+      <mat-select formControlName="publicada">
+        <mat-option value="y">Si</mat-option>
+        <mat-option value="n">No</mat-option>
+      </mat-select>
     </mat-form-field>
 
     <div class="inline-block mr-auto">
-      <button mat-raised-button class="mr-3" color="primary" (click)="onAction()">{{action}}</button>
+      <button mat-raised-button class="mr-3" color="primary" [disabled]="!formNoticia.valid"
+        (click)="onAction()">{{action}}</button>
       <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
     </div>
 

@@ -47,7 +47,6 @@ export class FormNoticiaComponent implements OnInit {
   getAllEmpresas() {
     this.empresaService.getCollection().subscribe(res => {
       this.empresas = res;
-      console.log(this.empresas);
     });
   }
 

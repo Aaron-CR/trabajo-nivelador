@@ -41,7 +41,7 @@ export class AdminNoticiaComponent implements OnInit {
   }
 
   onSubmit(object: any) {
-    this.dialog.open(FormNoticiaComponent, { disableClose: true, data: object })
+    this.dialog.open(FormNoticiaComponent, { disableClose: true, data: object, width: '80%' })
       .afterClosed().subscribe(result => {
         if (result.event === 'Añadir') {
           this.create(result.data);

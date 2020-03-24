@@ -23,7 +23,8 @@ export class FirestoreService<T extends Base> {
   }
 
   create(document: T) {
-    return this.firestore.collection<T>(this.endpoint).add(document);
+    document.id = this.firestore.createId();
+    return this.firestore.doc<T>(`${this.endpoint}/${document.id}`).set(document);
   }
 
   update(document: T) {
