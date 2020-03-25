@@ -33,6 +33,7 @@ import { environment } from '../environments/environment';
 // Services guards and pipes
 import { EmpresaService } from './core/services/empresa.service';
 import { NoticiaService } from './core/services/noticia.service';
+import { HomeObserverService } from './core/services/home-observer.service';
 import { EmpresaPipe } from './shared/pipes/empresa.pipe';
 
 @NgModule({
@@ -66,7 +67,8 @@ import { EmpresaPipe } from './shared/pipes/empresa.pipe';
   providers: [
     AngularFirestore,
     EmpresaService,
-    NoticiaService
+    NoticiaService,
+    HomeObserverService
   ],
   bootstrap: [AppComponent]
 })

@@ -25,6 +25,7 @@
     "@tinymce/tinymce-angular": "^3.5.0",
     "bootstrap": "^4.4.1",
     "firebase": "^7.11.0",
+    "jquery": "^3.4.1",
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.10.2",
     "tslib": "^1.10.0",

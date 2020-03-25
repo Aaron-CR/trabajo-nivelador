@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent, data: { visible: false } },
   { path: 'admin/empresas', component: AdminEmpresaComponent, data: { visible: false } },
   { path: 'admin/noticias', component: AdminNoticiaComponent, data: { visible: false } },
-  { path: 'home', component: HomeComponent },
+  { path: 'home/:id', component: HomeComponent },
   { path: 'buscador', component: BuscadorComponent },
   { path: 'detalle', component: DetalleComponent },
   { path: '404', component: Page404Component },

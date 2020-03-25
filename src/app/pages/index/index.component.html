@@ -1,35 +1,37 @@
 <app-toolbar></app-toolbar>
 <mat-card class="container col-8 my-4">
-  <mat-card-title> {{ title }} </mat-card-title>
-  <!-- Barra de busqueda -->
-  <mat-form-field class="w-100">
-    <mat-label> Buscar </mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por {{ displayedColumns }}">
-    <mat-icon matSuffix> search </mat-icon>
-  </mat-form-field>
-  <!-- Row end -->
-  <mat-card-content>
-    <mat-table matSort [dataSource]="dataSource" class="mat-elevation-z2">
+    <mat-card-title> {{ title }} </mat-card-title>
+    <!-- Barra de busqueda -->
+    <mat-form-field class="w-100">
+        <mat-label> Buscar </mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por {{ displayedColumns }}">
+        <mat-icon matSuffix> search </mat-icon>
+    </mat-form-field>
+    <!-- Row end -->
+    <mat-card-content>
+        <mat-table matSort [dataSource]="dataSource" class="mat-elevation-z2">
 
-      <!-- Dynamic column -->
-      <ng-container *ngFor="let def of displayedColumns" [matColumnDef]="def">
-        <mat-header-cell mat-sort-header *matHeaderCellDef> {{ def | titlecase }} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row[def] }} </mat-cell>
-      </ng-container>
+            <!-- Dynamic column -->
+            <ng-container *ngFor="let def of displayedColumns" [matColumnDef]="def">
+                <mat-header-cell mat-sort-header *matHeaderCellDef> {{ def | titlecase }} </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row[def] }} </mat-cell>
+            </ng-container>
 
-      <!-- Action column -->
-      <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          <!-- ViewPage Button -->
-          <a [routerLink]="['/home']" class="badge badge-primary">VER PAGINA</a>
-        </mat-cell>
-      </ng-container>
+            <!-- Action column -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <!-- ViewPage Button -->
+                    <button mat-button (click)="goHome(row)" class="btn-primary">VER PAGINA</button>
+                </mat-cell>
+            </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns.concat('actions')"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns.concat('actions')"></mat-row>
-    </mat-table>
-    <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
-  </mat-card-content>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns.concat('actions')"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns.concat('actions')"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
 
 </mat-card>

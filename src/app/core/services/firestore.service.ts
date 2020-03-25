@@ -22,6 +22,18 @@ export class FirestoreService<T extends Base> {
       }));
   }
 
+  getOne(id: string) {
+    return  this.firestore.doc<T>(`${this.endpoint}/${id}`).snapshotChanges().pipe(map( action => {
+      if (action.payload.exists === false) {
+        return null;
+      } else {
+        const data = action.payload.data() as T;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
+  }
+
   create(document: T) {
     document.id = this.firestore.createId();
     return this.firestore.doc<T>(`${this.endpoint}/${document.id}`).set(document);

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HomeObserverService } from 'src/app/core/services/home-observer.service';
+import { Empresa } from '../../models/empresa.model';
 
 @Component({
   selector: 'app-footer',
@@ -8,9 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FooterComponent implements OnInit {
   @Input() visible: boolean;
 
-  constructor() { }
+  public empresa: Empresa;
+
+  constructor(private observerService: HomeObserverService) { }
 
   ngOnInit(): void {
+    this.observerService.empresaDestino.subscribe( res => {
+      this.empresa = res;
+    });
   }
 
 }
