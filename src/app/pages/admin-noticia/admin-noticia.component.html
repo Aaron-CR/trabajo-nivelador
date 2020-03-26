@@ -23,12 +23,28 @@
   <mat-card-content>
     <mat-table matSort [dataSource]="dataSource" class="mat-elevation-z2">
 
-      <!-- Dynamic column -->
-      <ng-container *ngFor="let def of displayedColumns" [matColumnDef]="def">
-        <mat-header-cell mat-sort-header *matHeaderCellDef> {{ def | titlecase }} </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          {{ def.toString() === 'fechaPublicacion' ? (row[def].toMillis() | date:'shortDate') : row[def] }}
-        </mat-cell>
+      <!-- Titulo column -->
+      <ng-container matColumnDef="titulo">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Titulo </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.titulo }} </mat-cell>
+      </ng-container>
+
+      <!-- Publicada column -->
+      <ng-container matColumnDef="publicada">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Publicada </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.publicada.toString() === 'y' ? "Si" : "No" }} </mat-cell>
+      </ng-container>
+
+      <!-- Fecha de publicación column -->
+      <ng-container matColumnDef="fechaPublicacion">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Fecha de publicación </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.fechaPublicacion.toMillis() | date:'shortDate' }} </mat-cell>
+      </ng-container>
+
+      <!-- Empresa column -->
+      <ng-container matColumnDef="idEmpresa">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Empresa </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.idEmpresa }} </mat-cell>
       </ng-container>
 
       <!-- Action column -->

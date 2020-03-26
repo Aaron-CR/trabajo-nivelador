@@ -22,12 +22,24 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="pb-3 w-100">
-      <input matInput type="email" placeholder="{{action}} Email" formControlName="email">
-      <mat-error *ngIf="errorHandling('email', 'required')">
-        Debe proporcionar un<strong> E-mail.</strong>
-      </mat-error>
-    </mat-form-field>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <input matInput type="email" placeholder="{{action}} Email" formControlName="email">
+          <mat-error *ngIf="errorHandling('email', 'required')">
+            Debe proporcionar un<strong> E-mail.</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <input matInput placeholder="{{action}} Telefono" formControlName="telefono">
+          <mat-error *ngIf="errorHandling('telefono', 'required')">
+            Debe proporcionar un<strong> telefono.</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
 
     <mat-form-field class="pb-3 w-100">
       <input matInput placeholder="{{action}} Horario" formControlName="horario">
@@ -36,35 +48,34 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="pb-3 w-100">
-      <input matInput placeholder="{{action}} Latitud" formControlName="latitud">
-      <mat-error *ngIf="errorHandling('latitud', 'required')">
-        Debe proporcionar una<strong> latitud.</strong>
-      </mat-error>
-    </mat-form-field>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <input matInput type="number" placeholder="{{action}} Latitud" formControlName="latitud">
+          <mat-error *ngIf="errorHandling('latitud', 'required')">
+            Debe proporcionar una<strong> latitud.</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="pb-3 w-100">
+          <input matInput type="number" placeholder="{{action}} Longitud" formControlName="longitud">
+          <mat-error *ngIf="errorHandling('longitud', 'required')">
+            Debe proporcionar una<strong> longitud.</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
 
     <mat-form-field class="pb-3 w-100">
-      <input matInput placeholder="{{action}} Longitud" formControlName="longitud">
-      <mat-error *ngIf="errorHandling('longitud', 'required')">
-        Debe proporcionar una<strong> longitud.</strong>
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="pb-3 w-100">
-      <textarea matInput placeholder="{{action}} Quienes Somos" formControlName="quienesSomos"> </textarea>
+      <textarea matInput placeholder="{{action}} Quienes Somos" formControlName="quienesSomos"></textarea>
       <mat-error *ngIf="errorHandling('quienesSomos', 'required')">
         Debe proporcionar un<strong> quienes somos.</strong>
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="pb-3 w-100">
-      <input matInput placeholder="{{action}} Telefono" formControlName="telefono">
-      <mat-error *ngIf="errorHandling('telefono', 'required')">
-        Debe proporcionar un<strong> telefono.</strong>
-      </mat-error>
-    </mat-form-field>
-
-    <button mat-raised-button class="mr-3" color="primary" (click)="onAction()">{{action}}</button>
+    <button mat-raised-button class="mr-3" color="primary" [disabled]="!formEmpresa.valid"
+      (click)="onAction()">{{action}}</button>
     <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
   </form>
 </div>

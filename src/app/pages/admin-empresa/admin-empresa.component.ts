@@ -39,7 +39,7 @@ export class AdminEmpresaComponent implements OnInit {
   }
 
   onSubmit(object: any) {
-    this.dialog.open(FormEmpresaComponent, { disableClose: true, data: object })
+    this.dialog.open(FormEmpresaComponent, { disableClose: true, data: object, width: '80%' })
       .afterClosed().subscribe(result => {
         if (result.event === 'Añadir') {
           this.create(result.data);

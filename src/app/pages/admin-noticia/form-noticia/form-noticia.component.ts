@@ -1,8 +1,6 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { EmpresaService } from '../../../core/services/empresa.service';
-import { Noticia } from 'src/app/shared/models/noticia.model';
 import { Empresa } from 'src/app/shared/models/empresa.model';
 
 @Component({
@@ -11,48 +9,45 @@ import { Empresa } from 'src/app/shared/models/empresa.model';
   styleUrls: ['./form-noticia.component.css']
 })
 export class FormNoticiaComponent implements OnInit {
-  public localData: Noticia;
+  public localData: any;
   public action: string;
   public formNoticia: FormGroup;
-  public empresas: Empresa[];
+  public localEmpresas: Empresa[];
 
   constructor(
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Noticia,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<FormNoticiaComponent>,
     public formBuilder: FormBuilder,
-    public empresaService: EmpresaService
   ) {
     this.localData = { ...data };
   }
 
   ngOnInit(): void {
-    this.getAllEmpresas();
     this.buildForm();
     this.setAction();
   }
 
   buildForm() {
     this.formNoticia = this.formBuilder.group({
-      id: [this.localData.id],
-      titulo: [this.localData.titulo, [Validators.required]],
-      resumen: [this.localData.resumen, [Validators.required]],
-      imagen: [this.localData.imagen, [Validators.required]],
-      contenidoHTML: [this.localData.contenidoHTML, [Validators.required]],
-      publicada: [this.localData.publicada, [Validators.required]],
-      fechaPublicacion: [this.localData.fechaPublicacion, [Validators.required]],
-      idEmpresa: [this.localData.idEmpresa, [Validators.required]]
+      id: [this.localData.data.id],
+      titulo: [this.localData.data.titulo, [Validators.required]],
+      resumen: [this.localData.data.resumen, [Validators.required]],
+      imagen: [this.localData.data.imagen, [Validators.required]],
+      contenidoHTML: [this.localData.data.contenidoHTML, [Validators.required]],
+      publicada: [this.localData.data.publicada, [Validators.required]],
+      fechaPublicacion: [this.fechaPublicacion, [Validators.required]],
+      idEmpresa: [this.localData.data.idEmpresa, [Validators.required]]
     });
   }
 
-  getAllEmpresas() {
-    this.empresaService.getCollection().subscribe(res => {
-      this.empresas = res;
-      console.log(this.empresas);
-    });
+  get fechaPublicacion() {
+    return this.localData.data.fechaPublicacion === undefined
+      ? new Date()
+      : new Date(this.localData.data.fechaPublicacion.toMillis());
   }
 
   setAction() {
-    this.action = (this.localData.id) ? 'Editar' : 'Añadir';
+    this.action = (this.localData.data.id) ? 'Editar' : 'Añadir';
   }
 
   onAction() {

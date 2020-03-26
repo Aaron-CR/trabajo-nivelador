@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 // App modules
@@ -7,6 +8,7 @@ import { MaterialModule } from './core/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 // App components
 import { AppComponent } from './app.component';
@@ -30,10 +32,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
-// Services and guards
+// Services guards and pipes
 import { EmpresaService } from './core/services/empresa.service';
 import { NoticiaService } from './core/services/noticia.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmpresaPipe } from './shared/pipes/empresa.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToolbarComponent,
     AdminEmpresaComponent,
     AdminNoticiaComponent,
-    MapComponent
+    MapComponent,
+    EmpresaPipe
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    EditorModule
   ],
   providers: [
     AngularFirestore,
