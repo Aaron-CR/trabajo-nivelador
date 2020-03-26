@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './core/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 // App components
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { AdminEmpresaComponent } from './pages/admin-empresa/admin-empresa.compo
 import { AdminNoticiaComponent } from './pages/admin-noticia/admin-noticia.component';
 import { FormEmpresaComponent } from './pages/admin-empresa/form-empresa/form-empresa.component';
 import { FormNoticiaComponent } from './pages/admin-noticia/form-noticia/form-noticia.component';
+import { MapComponent } from './pages/map/map.component';
 
 // Firebase services and enviorment module
 import { AngularFireModule } from '@angular/fire';
@@ -47,7 +49,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormNoticiaComponent,
     ToolbarComponent,
     AdminEmpresaComponent,
-    AdminNoticiaComponent
+    AdminNoticiaComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule
   ],
   providers: [
     AngularFirestore,
