@@ -9,7 +9,7 @@ import { Base } from 'src/app/shared/models/base';
 export class FirestoreService<T extends Base> {
   protected endpoint;
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(protected firestore: AngularFirestore) { }
 
   getCollection() {
     return this.firestore.collection<T>(this.endpoint).snapshotChanges()
@@ -20,6 +20,18 @@ export class FirestoreService<T extends Base> {
           return data;
         });
       }));
+  }
+
+  getOne(id: string) {
+    return  this.firestore.doc<T>(`${this.endpoint}/${id}`).snapshotChanges().pipe(map( action => {
+      if (action.payload.exists === false) {
+        return null;
+      } else {
+        const data = action.payload.data() as T;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
   }
 
   create(document: T) {
