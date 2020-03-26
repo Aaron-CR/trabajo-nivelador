@@ -44,7 +44,7 @@
       <!-- Empresa column -->
       <ng-container matColumnDef="idEmpresa">
         <mat-header-cell mat-sort-header *matHeaderCellDef> Empresa </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row.idEmpresa }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.idEmpresa | empresa:empresas }} </mat-cell>
       </ng-container>
 
       <!-- Action column -->
