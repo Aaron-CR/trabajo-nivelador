@@ -1,6 +1,6 @@
-<section class="well well1 well1_ins1">
-    <h2>AGREGAR SLIDER</h2>
-</section>
+<div *ngIf="this.noticias != undefined">
+    <app-slider [noticias]='noticias'></app-slider>
+</div>
 
 <section class="well well2 wow fadeIn  bg1" data-wow-duration='3s'>
     <div class="container">

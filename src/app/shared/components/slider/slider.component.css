@@ -1,0 +1,22 @@
+.carousel-item {
+    height: 400px;
+}
+
+.carousel-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-caption {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    background-color: #21c2f8c0;
+    width: 300px;
+}
+
+.carousel-caption h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+}

@@ -9,7 +9,7 @@ import { Base } from 'src/app/shared/models/base';
 export class FirestoreService<T extends Base> {
   protected endpoint;
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(protected firestore: AngularFirestore) { }
 
   getCollection() {
     return this.firestore.collection<T>(this.endpoint).snapshotChanges()
