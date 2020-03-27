@@ -1,38 +1,34 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Empresa } from 'src/app/shared/models/empresa.model';
+import { HomeObserverService } from '../../core/services/home-observer.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+export class MapComponent implements OnInit {
 
-  @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
+  constructor(private observerService: HomeObserverService) { }
+
+  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
 
   map: google.maps.Map;
-
-  lat: number = 0;
-  lng: number = 0;
+  marker: google.maps.Marker;
+  empresa: Empresa;
 
   ngOnInit(): void {
-  }
-
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
-
-  mapOptions: google.maps.MapOptions = {
-    center: this.coordinates,
-    zoom: 8,
-  };
-
-  mapInitializer() {
-    this.map = new google.maps.Map(this.gmap.nativeElement, 
-    this.mapOptions);
-   }
-
-   ngAfterViewInit() {
-
-    this.mapInitializer();
+    this.observerService.empresaDestino.subscribe(res => {
+      this.empresa = res;
+      this.map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: this.empresa.latitud, lng: this.empresa.longitud },
+        zoom: 18
+      });
+      this.marker = new google.maps.Marker({
+        position: { lat: this.empresa.latitud, lng: this.empresa.longitud },
+      })
+      this.marker.setMap(this.map);
+    });
   }
 }
