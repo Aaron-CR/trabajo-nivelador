@@ -28,7 +28,7 @@ export class BuscadorComponent implements OnInit {
         this.texto = params.texto;
         this.empresaId = params.id;
         this.getEmpresa(params.id);
-        this.getNoticias(params.id, params.texto);
+        this.getNoticias(params.id);
       }
     });
   }
@@ -39,8 +39,8 @@ export class BuscadorComponent implements OnInit {
     });
   }
 
-  getNoticias(idEmpresa: string, texto: string) {
-    this.noticiaService.getTwenty(idEmpresa, texto).subscribe(res => {
+  getNoticias(idEmpresa: string) {
+    this.noticiaService.getNoticias(idEmpresa, 20).subscribe(res => {
       this.noticias = res;
     });
   }

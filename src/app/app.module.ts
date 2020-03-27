@@ -23,6 +23,7 @@ import { AdminEmpresaComponent } from './pages/admin-empresa/admin-empresa.compo
 import { AdminNoticiaComponent } from './pages/admin-noticia/admin-noticia.component';
 import { FormEmpresaComponent } from './pages/admin-empresa/form-empresa/form-empresa.component';
 import { FormNoticiaComponent } from './pages/admin-noticia/form-noticia/form-noticia.component';
+import { SliderComponent } from './shared/components/slider/slider.component';
 
 // Firebase services and enviorment module
 import { AngularFireModule } from '@angular/fire';
@@ -35,7 +36,6 @@ import { EmpresaService } from './core/services/empresa.service';
 import { NoticiaService } from './core/services/noticia.service';
 import { HomeObserverService } from './core/services/home-observer.service';
 import { EmpresaPipe } from './shared/pipes/empresa.pipe';
-import { SliderComponent } from './shared/components/slider/slider.component';
 import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 
 @NgModule({

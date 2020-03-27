@@ -20,7 +20,9 @@
           <input class="search-form_input" type="text" name="texto" [(ngModel)]="texto" />
           <span class="search-form_liveout"></span>
         </label>
-        <button class="search-form_submit fa-search" [routerLink]="['/buscador', empresa.id, texto]"></button>
+        <button class="search-form_submit fa-search" [disabled]="!texto"
+          [routerLink]="['/buscador', empresa.id, texto]">
+        </button>
       </form>
     </div>
   </div>

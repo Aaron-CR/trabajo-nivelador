@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   getOneEmpresa(id: string) {
     this.empresaService.getOne(id).subscribe(res => {
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
   }
 
   getFiveNoticias(idEmpresa: string) {
-    this.noticiaService.getFive(idEmpresa).subscribe( res => {
+    this.noticiaService.getNoticias(idEmpresa, 5).subscribe(res => {
       this.noticias = res;
     });
   }

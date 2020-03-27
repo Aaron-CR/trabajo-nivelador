@@ -1,6 +1,6 @@
 <section class="well well4">
   <div class="container">
-    <h2> {{ texto }}</h2>
+    <h2> Resultados de: {{ texto }}</h2>
     <div class="row" *ngFor="let noticia of noticias">
       <div class="col-4">
         <a [routerLink]="['/detalle', noticia.id]">
@@ -14,7 +14,7 @@
         <div>
           {{ noticia.resumen }}
           <a [routerLink]="['/detalle', noticia.id]" style="color:blue">
-            Leer Mas - {{ noticia.fechaPublicacion.toMillis() | date:'shortDate'}}
+            Leer Mas - {{ noticia.fechaPublicacion.toMillis() | date:'dd-MM-yyyy'}}
           </a>
         </div>
       </div>
