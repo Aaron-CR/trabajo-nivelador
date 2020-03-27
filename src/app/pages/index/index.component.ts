@@ -40,7 +40,6 @@ export class IndexComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  // TODO: Agregar metodo VER PAGINA
   goHome(item: any) {
     this.router.navigate(['home/' + item.id]);
   }

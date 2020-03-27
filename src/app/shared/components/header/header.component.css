@@ -1,3 +1,24 @@
 .navbar-brand {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 350px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-option-img {
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 40px;
+}
+
+[dir='rtl'] .example-option-img {
+  margin-right: 0;
+  margin-left: 8px;
 }

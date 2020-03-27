@@ -13,8 +13,8 @@
     </div>
   </div>
 
-  <div class="stuck_container ml-auto">
-    <div class="container ">
+  <!--   <div class="stuck_container ml-auto">
+    <div class="container">
       <form class="search-form float-right">
         <label class="search-form_label">
           <input class="search-form_input" type="text" name="texto" [(ngModel)]="texto" />
@@ -23,6 +23,25 @@
         <button class="search-form_submit fa-search" [disabled]="!texto"
           [routerLink]="['/buscador', empresa.id, texto]">
         </button>
+      </form>
+    </div>
+  </div> -->
+
+  <div class="stuck_container ml-auto">
+    <div class="container">
+      <form class="example-form search-form float-right">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <input matInput class="search-form_input" [matAutocomplete]="auto" [formControl]="noticiaCtrl">
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let noticia of filteredNoticias | async" [value]="noticia.titulo"
+              [routerLink]="['/detalle', noticia.id]">
+              <img class="example-option-img" aria-hidden [src]="noticia.imagen" height="35">
+              <span>{{noticia.titulo}}</span> |
+              <small>Resumen: {{noticia.resumen}}</small>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
       </form>
     </div>
   </div>
