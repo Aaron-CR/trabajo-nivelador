@@ -36,6 +36,7 @@ import { NoticiaService } from './core/services/noticia.service';
 import { HomeObserverService } from './core/services/home-observer.service';
 import { EmpresaPipe } from './shared/pipes/empresa.pipe';
 import { SliderComponent } from './shared/components/slider/slider.component';
+import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SliderComponent } from './shared/components/slider/slider.component';
     AdminEmpresaComponent,
     AdminNoticiaComponent,
     EmpresaPipe,
-    SliderComponent
+    SliderComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,

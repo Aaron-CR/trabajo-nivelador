@@ -1,5 +1,5 @@
 <div *ngIf="this.noticias != undefined">
-    <app-slider [noticias]='noticias'></app-slider>
+    <app-slider [noticias]='noticias' (navNoticia)="navDetalleNoticia($event)"></app-slider>
 </div>
 
 <section class="well well2 wow fadeIn  bg1" data-wow-duration='3s'>

@@ -14,12 +14,16 @@ export class HeaderComponent implements OnInit {
   public texto: string;
   public empresa: Empresa;
 
-  constructor(private observerService: HomeObserverService) { }
+  constructor(private observerService: HomeObserverService, private router: Router) { }
 
   ngOnInit(): void {
     this.observerService.empresaDestino.subscribe(res => {
       this.empresa = res;
     });
+  }
+
+  goHome() {
+    this.router.navigate(['home/' + this.empresa.id]);
   }
 
 }

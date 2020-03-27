@@ -3,19 +3,22 @@
         <div class="carousel-inner .carousel-size ">
             <div class="carousel-item active">
                 <img src="{{this.noticiaPrincipal.imagen}}" alt="imagen">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>{{this.noticiaPrincipal.titulo}}</h2>
-                    <p>{{this.noticiaPrincipal.resumen}}</p>
-                </div>
+                <button (click)="irDetalle(this.noticiaPrincipal.id)">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>{{this.noticiaPrincipal.titulo}}</h2>
+                        <p>{{this.noticiaPrincipal.resumen}}</p>
+                    </div>
+                  </button>
+
             </div>
             <div class="carousel-item" *ngFor="let noticia of noticiasArreglo">
                 <img src="{{noticia.imagen}}" alt="imagen">
-                <div>
+                <a (click)="irDetalle(noticia.id)">
                     <div class="carousel-caption d-none d-md-block">
                         <h2>{{noticia.titulo}}</h2>
                         <p>{{noticia.resumen}}</p>
                     </div>
-                </div>
+                </a>
             </div>
 
         </div>
