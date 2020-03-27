@@ -31,6 +31,7 @@ import { SliderComponent } from './shared/components/slider/slider.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
 // Services guards and pipes
@@ -65,6 +66,7 @@ import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
