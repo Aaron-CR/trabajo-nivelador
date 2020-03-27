@@ -19,9 +19,27 @@ export class NoticiaService extends FirestoreService<Noticia> {
           data.id = action.payload.doc.id;
           return data;
         },
-        err => {
-          console.log('Ocurrió un error');
-        });
+          err => {
+            console.log('Ocurrió un error');
+          });
+      }));
+  }
+
+  getTwenty(idEmpresa: string, texto: string) {
+    return this.firestore.collection<Noticia>(this.endpoint, ref => {
+      return ref.where('idEmpresa', '==', idEmpresa)
+        .orderBy('fechaPublicacion', 'desc')
+        .limit(20);
+    }).snapshotChanges()
+      .pipe(map(changes => {
+        return changes.map(action => {
+          const data = action.payload.doc.data() as Noticia;
+          data.id = action.payload.doc.id;
+          return data;
+        },
+          err => {
+            console.log('Ocurrió un error');
+          });
       }));
   }
 }

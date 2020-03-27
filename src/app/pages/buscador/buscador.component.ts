@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NoticiaService } from 'src/app/core/services/noticia.service';
+import { Noticia } from 'src/app/shared/models/noticia.model';
+import { EmpresaService } from 'src/app/core/services/empresa.service';
+import { HomeObserverService } from 'src/app/core/services/home-observer.service';
 
 @Component({
   selector: 'app-buscador',
@@ -6,10 +11,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscador.component.css']
 })
 export class BuscadorComponent implements OnInit {
+  public texto: string;
+  public empresaId: string;
+  public noticias: Noticia[];
 
-  constructor() { }
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    public noticiaService: NoticiaService,
+    public empresaService: EmpresaService,
+    public observerService: HomeObserverService
+  ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params.id !== undefined) {
+        this.texto = params.texto;
+        this.empresaId = params.id;
+        this.getEmpresa(params.id);
+        this.getNoticias(params.id, params.texto);
+      }
+    });
+  }
+
+  getEmpresa(id: string) {
+    this.empresaService.getOne(id).subscribe(res => {
+      this.observerService.changeId(res);
+    });
+  }
+
+  getNoticias(idEmpresa: string, texto: string) {
+    this.noticiaService.getTwenty(idEmpresa, texto).subscribe(res => {
+      this.noticias = res;
+    });
   }
 
 }

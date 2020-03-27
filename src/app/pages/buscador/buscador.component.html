@@ -1,112 +1,23 @@
 <section class="well well4">
   <div class="container">
-    <h2> Texto Buscado </h2>
-    <div class="row offs2">
-      <table width="90%" align="center">
-        <tbody>
-          <tr>
-            <td>
-              <a href="noticia.php?idNoticia=870">
-                <img width="250px" class="imgNoticia" src="./assets/images/page-1_slide1.jpg" alt="">
-              </a>
-            </td>
-            <td width="25"></td>
-            <td style="text-align:justify;" valign="top">
-              <a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-                Titulo </a>
-              <div class="verOcultar">
-                Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue">
-                  Leer Mas - 2020-02-14</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <table width="90%" align="center">
-        <tbody>
-          <tr>
-            <td>
-              <a href="noticia.php?idNoticia=870">
-                <img width="250px" class="imgNoticia" src="./assets/images/page-1_slide1.jpg" alt="">
-              </a>
-            </td>
-            <td width="25"></td>
-            <td style="text-align:justify;" valign="top">
-              <a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-                Titulo </a>
-              <div class="verOcultar">
-                Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue">
-                  Leer Mas - 2020-02-14</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <table width="90%" align="center">
-        <tbody>
-          <tr>
-            <td>
-              <a href="noticia.php?idNoticia=870">
-                <img width="250px" class="imgNoticia" src="./assets/images/page-1_slide1.jpg" alt="">
-              </a>
-            </td>
-            <td width="25"></td>
-            <td style="text-align:justify;" valign="top">
-              <a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-                Titulo </a>
-              <div class="verOcultar">
-                Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue">
-                  Leer Mas - 2020-02-14</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <table width="90%" align="center">
-        <tbody>
-          <tr>
-            <td>
-              <a href="noticia.php?idNoticia=870">
-                <img width="250px" class="imgNoticia" src="./assets/images/page-1_slide1.jpg" alt="">
-              </a>
-            </td>
-            <td width="25"></td>
-            <td style="text-align:justify;" valign="top">
-              <a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-                Titulo </a>
-              <div class="verOcultar">
-                Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue">
-                  Leer Mas - 2020-02-14</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <table width="90%" align="center">
-        <tbody>
-          <tr>
-            <td>
-              <a href="noticia.php?idNoticia=870">
-                <img width="250px" class="imgNoticia" src="./assets/images/page-1_slide1.jpg" alt="">
-              </a>
-            </td>
-            <td width="25"></td>
-            <td style="text-align:justify;" valign="top">
-              <a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-                Titulo </a>
-              <div class="verOcultar">
-                Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue">
-                  Leer Mas - 2020-02-14</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
+    <h2> {{ texto }}</h2>
+    <div class="row" *ngFor="let noticia of noticias">
+      <div class="col-4">
+        <a [routerLink]="['/detalle', noticia.id]">
+          <img width="250px" src="{{noticia.imagen}}" alt="{{noticia.titulo}}">
+        </a>
+      </div>
+      <div class="col-8">
+        <a [routerLink]="['/detalle', noticia.id]" style="text-align:justify; font-size:20px">
+          {{ noticia.titulo }}
+        </a>
+        <div>
+          {{ noticia.resumen }}
+          <a [routerLink]="['/detalle', noticia.id]" style="color:blue">
+            Leer Mas - {{ noticia.fechaPublicacion.toMillis() | date:'shortDate'}}
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

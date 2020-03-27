@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'admin/empresas', component: AdminEmpresaComponent, data: { visible: false } },
   { path: 'admin/noticias', component: AdminNoticiaComponent, data: { visible: false } },
   { path: 'home/:id', component: HomeComponent },
-  { path: 'buscador', component: BuscadorComponent },
+  { path: 'buscador/:id/:texto', component: BuscadorComponent },
   { path: 'detalle', component: DetalleComponent },
   { path: '404', component: Page404Component },
   { path: '', redirectTo: 'index', pathMatch: 'full' },
