@@ -1,30 +1,21 @@
 <section class="well well4">
 
-  <div class="container">
-    <div id="imagenPrincipal"
-      style="height: 450px; background-image: url('./assets/images/page-1_slide1.jpg'); background-repeat: no-repeat;background-size: cover;">
-      <div style="text-align:left; background-color: rgba(1,1,1,0.5);color: #ffffff;font-size: 16px;line-height: 50px;">
-        Titulo de la Noticia
-      </div>
-    </div>
-    <h2>
-      Titulo de la Noticia
-    </h2>
-    Fecha Publicacion: 12/02/2020
-    <hr>
-    <div class="row offs2">
+    <div class="container header">
+        <button mat-button (click)="goBack()"> << Volver </button>
+        <h5 class="mt-5"><strong>{{empresa.denominacion}} |</strong> {{noticia.fechaPublicacion.toMillis() | date:'dd/MM/yyyy'}}</h5>
+        <h1>
+            {{noticia.titulo}}
+        </h1>
+        <h3 class="mb-5">
+            {{noticia.resumen}}
+        </h3>
 
-      <div class="col-lg-12">
-        <dl class="terms-list">
-          <dt>
-            Resumen de la noticia
-          </dt>
-          <hr>
-          <dd>
-            Contenido HTML de la Noticia
-          </dd>
-        </dl>
-      </div>
+        <div class="header-img">
+            <img src="{{noticia.imagen}}" alt="">
+        </div>
+        <hr>
+        <div class="content" [innerHTML]="noticia.contenidoHTML | safeHtml"></div>
+
     </div>
-  </div>
+
 </section>

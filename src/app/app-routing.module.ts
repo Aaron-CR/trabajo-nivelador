@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'admin/noticias', component: AdminNoticiaComponent, data: { visible: false } },
   { path: 'home/:id', component: HomeComponent },
   { path: 'buscador', component: BuscadorComponent },
-  { path: 'detalle', component: DetalleComponent },
+  { path: 'detalle/:id', component: DetalleComponent },
   { path: '404', component: Page404Component },
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: '**', redirectTo: '404', pathMatch: 'full' },
