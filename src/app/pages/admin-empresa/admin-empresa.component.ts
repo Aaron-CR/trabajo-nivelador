@@ -15,7 +15,7 @@ import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 })
 export class AdminEmpresaComponent implements OnInit {
   public title = 'Tabla de empresas';
-  public displayedColumns: string[] = ['denominacion', 'domicilio', 'email', 'telefono'];
+  public displayedColumns: string[] = ['denominacion', 'email', 'telefono', 'domicilio'];
   public dataSource: MatTableDataSource<Empresa> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

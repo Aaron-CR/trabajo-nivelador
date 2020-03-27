@@ -3,7 +3,7 @@ import { HomeObserverService } from './../../core/services/home-observer.service
 import { Empresa } from 'src/app/shared/models/empresa.model';
 import { EmpresaService } from 'src/app/core/services/empresa.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Noticia } from 'src/app/shared/models/noticia.model';
 
 @Component({
@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
     private empresaService: EmpresaService,
     private noticiaService: NoticiaService,
     private rutaActiva: ActivatedRoute,
+    private router: Router,
     private observerService: HomeObserverService
   ) {
     this.rutaActiva.params.subscribe(data => {
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   getOneEmpresa(id: string) {
     this.empresaService.getOne(id).subscribe(res => {
@@ -51,8 +52,12 @@ export class HomeComponent implements OnInit {
   }
 
   getFiveNoticias(idEmpresa: string) {
-    this.noticiaService.getFive(idEmpresa).subscribe( res => {
+    this.noticiaService.getNoticias(idEmpresa, 5).subscribe(res => {
       this.noticias = res;
     });
+  }
+
+  navDetalleNoticia(idNoticia) {
+    this.router.navigate(['/detalle/' + idNoticia]);
   }
 }

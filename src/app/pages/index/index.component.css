@@ -10,3 +10,13 @@
 .table tr {
   text-align: center;
 }
+
+.mat-header-cell:last-child {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mat-cell:last-child {
+  text-align: center;
+  justify-content: center;
+}

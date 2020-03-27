@@ -1,29 +1,30 @@
 <header *ngIf="visible">
-    <div class="container top-sect">
-        <div class="navbar-header">
-            <h1 class="navbar-brand">
-                <a data-type='rd-navbar-brand' href="./"><small>{{empresa.denominacion}}</small></a>
-            </h1>
-            <a class="search-form_toggle" href="#"></a>
-        </div>
-
-        <div class="help-box text-right">
-            <p>Telefono</p>
-            <a href="callto:#">{{empresa.telefono}}</a>
-            <small><span>Horario:</span> {{empresa.horario}}</small>
-        </div>
+  <div class="container top-sect">
+    <div class="navbar-header">
+      <h1 class="navbar-brand">
+        <a data-type='rd-navbar-brand' (click)="goHome()"><small>{{empresa.denominacion}}</small></a>
+      </h1>
+      <a class="search-form_toggle" href="#"></a>
     </div>
+    <div class="help-box text-right">
+      <p>Telefono</p>
+      <a href="callto:#">{{empresa.telefono}}</a>
+      <small><span>Horario:</span> {{empresa.horario}}</small>
+    </div>
+  </div>
 
-    <div class="stuck_container ml-auto">
-        <div class="container ">
-            <form class="search-form float-right">
-                <label class="search-form_label">
-          <input class="search-form_input" type="text" placeholder="" />
+  <div class="stuck_container ml-auto">
+    <div class="container ">
+      <form class="search-form float-right">
+        <label class="search-form_label">
+          <input class="search-form_input" type="text" name="texto" [(ngModel)]="texto" />
           <span class="search-form_liveout"></span>
         </label>
-                <button class="search-form_submit fa-search" type="submit"></button>
-            </form>
-        </div>
+        <button class="search-form_submit fa-search" [disabled]="!texto"
+          [routerLink]="['/buscador', empresa.id, texto]">
+        </button>
+      </form>
     </div>
+  </div>
 
 </header>

@@ -17,7 +17,7 @@ import { FormNoticiaComponent } from './form-noticia/form-noticia.component';
 })
 export class AdminNoticiaComponent implements OnInit {
   public title = 'Tabla de noticias';
-  public displayedColumns: string[] = ['titulo', 'publicada', 'fechaPublicacion', 'idEmpresa'];
+  public displayedColumns: string[] = ['titulo', 'idEmpresa', 'fechaPublicacion', 'publicada'];
   public dataSource: MatTableDataSource<Noticia> = new MatTableDataSource();
   public empresas: Empresa[];
 

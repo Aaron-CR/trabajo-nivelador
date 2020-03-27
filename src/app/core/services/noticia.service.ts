@@ -9,19 +9,22 @@ import { map } from 'rxjs/operators';
 export class NoticiaService extends FirestoreService<Noticia> {
   protected endpoint = 'noticias';
 
-  getFive(idEmpresa: string) {
-    return this.firestore.collection<Noticia>(this.endpoint, ref => {
-      return ref.where('idEmpresa', '==', idEmpresa).limit(5);
-    }).snapshotChanges()
+  getNoticias(idEmpresa: string, limit: number) {
+    return this.firestore.collection<Noticia>(this.endpoint, ref => ref
+      .where('idEmpresa', '==', idEmpresa)
+      .where('publicada', '==', 'y')
+      .orderBy('fechaPublicacion', 'desc')
+      .limit(limit)
+    ).snapshotChanges()
       .pipe(map(changes => {
         return changes.map(action => {
           const data = action.payload.doc.data() as Noticia;
           data.id = action.payload.doc.id;
           return data;
         },
-        err => {
-          console.log('Ocurrió un error');
-        });
+          err => {
+            console.log('Ocurrió un error');
+          });
       }));
   }
 }
