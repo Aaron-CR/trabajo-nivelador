@@ -12,7 +12,6 @@ import { Noticia } from 'src/app/shared/models/noticia.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   public empresa: Empresa = {
     denominacion: '',
     domicilio: '',
@@ -24,7 +23,6 @@ export class HomeComponent implements OnInit {
     telefono: '',
     id: ''
   };
-
   public noticias: Noticia[];
 
   constructor(

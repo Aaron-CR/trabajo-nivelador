@@ -1,40 +1,40 @@
 <div *ngIf="this.noticias != undefined">
-    <app-slider [noticias]='noticias' (navNoticia)="navDetalleNoticia($event)"></app-slider>
+  <app-slider [noticias]='noticias' (navNoticia)="navDetalleNoticia($event)"></app-slider>
 </div>
 
 <section class="well well2 wow fadeIn  bg1" data-wow-duration='3s'>
-    <div class="container">
-        <h2 class="txt-pr">
-            Quienes Somos
-        </h2>
-        <div class="row">
-            <div class="col">
-                <p style="text-align:justify">
-                    {{empresa.quienesSomos}}
-                </p>
-            </div>
-        </div>
+  <div class="container">
+    <h2 class="txt-pr">
+      Quienes Somos
+    </h2>
+    <div class="row">
+      <div class="col">
+        <p style="text-align:justify">
+          {{empresa.quienesSomos}}
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
 <section class="well well2 wow fadeIn mapa-bg" data-wow-duration='3s'>
-    <div class="container">
-        <h2 class="txt-pr">
-            Donde Estamos
-        </h2>
-        <div class="row">
-            <div class="col">
-                <p style="text-align:justify">
-                    <strong>Teléfono: </strong> <a href="callto:#">{{empresa.telefono}}</a>
-                </p>
-                <p style="text-align:justify">
-                    <strong>Email: </strong> <a href="mailto:#">{{empresa.email}}</a>
-                </p>
-                <p style="text-align:justify">
-                    <strong>Domicilio: </strong> {{empresa.domicilio}}
-                </p>
-            </div>
-        </div>
+  <div class="container">
+    <h2 class="txt-pr">
+      Donde Estamos
+    </h2>
+    <div class="row">
+      <div class="col">
+        <p style="text-align:justify">
+          <strong>Teléfono: </strong> <a href="callto:#">{{empresa.telefono}}</a>
+        </p>
+        <p style="text-align:justify">
+          <strong>Email: </strong> <a href="mailto:#">{{empresa.email}}</a>
+        </p>
+        <p style="text-align:justify">
+          <strong>Domicilio: </strong> {{empresa.domicilio}}
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 <app-map></app-map>

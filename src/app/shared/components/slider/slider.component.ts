@@ -1,13 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Noticia } from '../../models/noticia.model';
-import { HomeObserverService } from 'src/app/core/services/home-observer.service';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent {
 
   public noticiasArreglo: Noticia[];
   public noticiaPrincipal: Noticia = {
@@ -25,16 +24,12 @@ export class SliderComponent implements OnInit {
 
   @Input() set noticias(value) {
     if (value !== null) {
-        this.noticiaPrincipal = value.shift();
-        this.noticiasArreglo = value;
+      this.noticiaPrincipal = value.shift();
+      this.noticiasArreglo = value;
     }
   }
 
-  constructor(private observerService: HomeObserverService) { }
-
-  ngOnInit(): void {
-
-  }
+  constructor() { }
 
   irDetalle(idNoticia: string) {
     this.navNoticia.emit(idNoticia);

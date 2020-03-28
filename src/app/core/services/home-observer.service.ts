@@ -6,7 +6,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class HomeObserverService {
-
   public modeloEmpresa: Empresa = {
     denominacion: '',
     domicilio: '',
@@ -20,6 +19,7 @@ export class HomeObserverService {
   };
   public empresaOrigen = new BehaviorSubject<Empresa>(this.modeloEmpresa);
   public empresaDestino = this.empresaOrigen.asObservable();
+
   constructor() { }
 
   public changeId(empresa: Empresa): void {

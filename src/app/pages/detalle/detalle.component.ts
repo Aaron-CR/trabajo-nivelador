@@ -13,7 +13,6 @@ import { Empresa } from 'src/app/shared/models/empresa.model';
   styleUrls: ['./detalle.component.scss']
 })
 export class DetalleComponent implements OnInit {
-
   public noticia: Noticia = {
     id: '',
     titulo: '',
@@ -24,7 +23,6 @@ export class DetalleComponent implements OnInit {
     fechaPublicacion: '',
     idEmpresa: '',
   };
-
   public empresa: Empresa = {
     denominacion: '',
     domicilio: '',
@@ -37,14 +35,16 @@ export class DetalleComponent implements OnInit {
     id: ''
   };
 
-  constructor(private noticiaService: NoticiaService,
-              private rutaActiva: ActivatedRoute,
-              private location: Location,
-              private observerService: HomeObserverService,
-              private empresaService: EmpresaService) { }
+  constructor(
+    private noticiaService: NoticiaService,
+    private rutaActiva: ActivatedRoute,
+    private location: Location,
+    private observerService: HomeObserverService,
+    private empresaService: EmpresaService
+  ) { }
 
   ngOnInit(): void {
-    this.observerService.empresaDestino.subscribe( res => {
+    this.observerService.empresaDestino.subscribe(res => {
       this.empresa = res;
     });
     this.rutaActiva.params.subscribe(data => {
@@ -55,7 +55,7 @@ export class DetalleComponent implements OnInit {
   }
 
   getOneNoticia(idNoticia: string) {
-    this.noticiaService.getOne(idNoticia).subscribe( res => {
+    this.noticiaService.getOne(idNoticia).subscribe(res => {
       this.noticia = res;
       this.getOneEmpresa(res.idEmpresa);
     });
@@ -71,5 +71,4 @@ export class DetalleComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
 }

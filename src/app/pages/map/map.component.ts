@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Empresa } from 'src/app/shared/models/empresa.model';
 import { HomeObserverService } from '../../core/services/home-observer.service';
 
@@ -9,14 +9,12 @@ import { HomeObserverService } from '../../core/services/home-observer.service';
 })
 
 export class MapComponent implements OnInit {
+  @ViewChild('mapContainer') gmap: ElementRef;
+  public map: google.maps.Map;
+  public marker: google.maps.Marker;
+  public empresa: Empresa;
 
-  constructor(private observerService: HomeObserverService) { }
-
-  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
-
-  map: google.maps.Map;
-  marker: google.maps.Marker;
-  empresa: Empresa;
+  constructor(public observerService: HomeObserverService) { }
 
   ngOnInit(): void {
     this.observerService.empresaDestino.subscribe(res => {
@@ -27,7 +25,7 @@ export class MapComponent implements OnInit {
       });
       this.marker = new google.maps.Marker({
         position: { lat: this.empresa.latitud, lng: this.empresa.longitud },
-      })
+      });
       this.marker.setMap(this.map);
     });
   }

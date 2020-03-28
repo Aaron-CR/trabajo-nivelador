@@ -44,5 +44,4 @@ export class BuscadorComponent implements OnInit {
       this.noticias = res;
     });
   }
-
 }

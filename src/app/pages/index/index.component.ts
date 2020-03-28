@@ -20,7 +20,10 @@ export class IndexComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public empresaService: EmpresaService, private router: Router) { }
+  constructor(
+    public empresaService: EmpresaService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.empresaService.getCollection().subscribe(res => {

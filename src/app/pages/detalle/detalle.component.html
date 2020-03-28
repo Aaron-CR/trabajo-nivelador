@@ -1,21 +1,19 @@
 <section class="well well4">
-
-    <div class="container header">
-        <button mat-button (click)="goBack()"> << Volver </button>
-        <h5 class="mt-5"><strong>{{empresa.denominacion}} |</strong> {{noticia.fechaPublicacion.toMillis() | date:'dd/MM/yyyy'}}</h5>
-        <h1>
-            {{noticia.titulo}}
-        </h1>
-        <h3 class="mb-5">
-            {{noticia.resumen}}
-        </h3>
-
-        <div class="header-img">
-            <img src="{{noticia.imagen}}" alt="">
-        </div>
-        <hr>
-        <div class="content" [innerHTML]="noticia.contenidoHTML | safeHtml"></div>
-
+  <div class="container header">
+    <button mat-stroked-button (click)="goBack()">
+      <mat-icon [inline]="true" class="mr-2"> chevron_left </mat-icon>
+      Volver
+    </button>
+    <h5 class="mt-5">
+      <strong> {{empresa.denominacion}} | </strong>
+      {{noticia.fechaPublicacion.toMillis() | date:'dd/MM/yyyy'}}
+    </h5>
+    <h1> {{noticia.titulo}} </h1>
+    <h3 class="mb-5"> {{noticia.resumen}} </h3>
+    <div class="header-img">
+      <img src="{{noticia.imagen}}">
     </div>
-
+    <hr>
+    <div class="content" [innerHTML]="noticia.contenidoHTML | safeHtml"></div>
+  </div>
 </section>

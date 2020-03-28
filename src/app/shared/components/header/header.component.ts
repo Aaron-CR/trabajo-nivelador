@@ -1,7 +1,6 @@
-import { EmpresaService } from 'src/app/core/services/empresa.service';
 import { HomeObserverService } from './../../../core/services/home-observer.service';
 import { Empresa } from 'src/app/shared/models/empresa.model';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -19,10 +18,9 @@ export class HeaderComponent implements OnInit {
   @Input() visible: boolean;
   public texto: string;
   public empresa: Empresa;
-
-  noticiaCtrl = new FormControl();
-  filteredNoticias: Observable<Noticia[]>;
-  noticias: Noticia[];
+  public noticiaCtrl = new FormControl();
+  public filteredNoticias: Observable<Noticia[]>;
+  public noticias: Noticia[];
 
   constructor(
     public activatedRoute: ActivatedRoute,

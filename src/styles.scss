@@ -34,21 +34,6 @@
   }
 }
 
-.search-form_input {
-  outline: none;
-  background-color: transparent;
-  border: none;
-  -webkit-appearance: none;
-  border-radius: 0;
-  box-shadow: none;
-  color: #21c2f8;
-  display: block;
-  width: 100%;
-  font-size: 14px;
-  line-height: 16px;
-  height: 37px;
-}
-
 @media (max-width: 1199px) {
   .search-form_input {
     height: 31px;

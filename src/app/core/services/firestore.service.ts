@@ -7,7 +7,7 @@ import { Base } from 'src/app/shared/models/base';
   providedIn: 'root'
 })
 export class FirestoreService<T extends Base> {
-  protected endpoint;
+  protected endpoint: string;
 
   constructor(protected firestore: AngularFirestore) { }
 
@@ -23,7 +23,7 @@ export class FirestoreService<T extends Base> {
   }
 
   getOne(id: string) {
-    return  this.firestore.doc<T>(`${this.endpoint}/${id}`).snapshotChanges().pipe(map( action => {
+    return this.firestore.doc<T>(`${this.endpoint}/${id}`).snapshotChanges().pipe(map(action => {
       if (action.payload.exists === false) {
         return null;
       } else {
