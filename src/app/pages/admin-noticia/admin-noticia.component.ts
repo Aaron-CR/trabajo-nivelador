@@ -13,7 +13,7 @@ import { FormNoticiaComponent } from './form-noticia/form-noticia.component';
 @Component({
   selector: 'app-admin-noticia',
   templateUrl: './admin-noticia.component.html',
-  styleUrls: ['./admin-noticia.component.css']
+  styleUrls: ['./admin-noticia.component.scss']
 })
 export class AdminNoticiaComponent implements OnInit {
   public title = 'Tabla de noticias';

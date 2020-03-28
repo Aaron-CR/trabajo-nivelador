@@ -10,7 +10,7 @@ import { Empresa } from 'src/app/shared/models/empresa.model';
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.component.html',
-  styleUrls: ['./detalle.component.css']
+  styleUrls: ['./detalle.component.scss']
 })
 export class DetalleComponent implements OnInit {
 

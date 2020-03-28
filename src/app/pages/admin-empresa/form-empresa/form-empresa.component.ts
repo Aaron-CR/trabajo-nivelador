@@ -6,7 +6,7 @@ import { Empresa } from 'src/app/shared/models/empresa.model';
 @Component({
   selector: 'app-form-empresa',
   templateUrl: './form-empresa.component.html',
-  styleUrls: ['./form-empresa.component.css']
+  styleUrls: ['./form-empresa.component.scss']
 })
 export class FormEmpresaComponent implements OnInit {
   public localData: Empresa;

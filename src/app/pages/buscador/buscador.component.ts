@@ -8,7 +8,7 @@ import { HomeObserverService } from 'src/app/core/services/home-observer.service
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
-  styleUrls: ['./buscador.component.css']
+  styleUrls: ['./buscador.component.scss']
 })
 export class BuscadorComponent implements OnInit {
   public texto: string;

@@ -5,7 +5,7 @@ import { HomeObserverService } from 'src/app/core/services/home-observer.service
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css']
+  styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
 

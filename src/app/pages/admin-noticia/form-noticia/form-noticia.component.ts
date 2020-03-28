@@ -9,7 +9,7 @@ import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-form-noticia',
   templateUrl: './form-noticia.component.html',
-  styleUrls: ['./form-noticia.component.css']
+  styleUrls: ['./form-noticia.component.scss']
 })
 export class FormNoticiaComponent implements OnInit {
   public localData: any;

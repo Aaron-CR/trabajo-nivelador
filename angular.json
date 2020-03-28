@@ -5,7 +5,11 @@
     "projects": {
         "trabajo-nivelador": {
             "projectType": "application",
-            "schematics": {},
+            "schematics": {
+              "@schematics/angular:component": {
+                "styleext": "scss"
+              }
+            },
             "root": "",
             "sourceRoot": "src",
             "prefix": "app",
@@ -26,7 +30,7 @@
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "node_modules/bootstrap/dist/css/bootstrap.css",
-                            "src/styles.css"
+                            "src/styles.scss"
                         ],
                         "scripts": [
                             "./node_modules/jquery/dist/jquery.min.js",
@@ -91,7 +95,7 @@
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "src/styles.css"
+                            "src/styles.scss"
                         ],
                         "scripts": []
                     }

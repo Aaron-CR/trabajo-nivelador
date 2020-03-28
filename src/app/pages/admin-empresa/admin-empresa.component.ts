@@ -11,7 +11,7 @@ import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 @Component({
   selector: 'app-admin-empresa',
   templateUrl: './admin-empresa.component.html',
-  styleUrls: ['./admin-empresa.component.css']
+  styleUrls: ['./admin-empresa.component.scss']
 })
 export class AdminEmpresaComponent implements OnInit {
   public title = 'Tabla de empresas';

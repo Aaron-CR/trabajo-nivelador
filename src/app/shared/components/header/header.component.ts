@@ -13,7 +13,7 @@ import { NoticiaService } from 'src/app/core/services/noticia.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   @Input() visible: boolean;
