@@ -29,8 +29,8 @@ import { SliderComponent } from './shared/components/slider/slider.component';
 
 // Firebase services and enviorment module
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
@@ -67,6 +67,7 @@ import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
@@ -76,6 +77,7 @@ import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
   ],
   providers: [
     AngularFirestore,
+    AngularFirestoreModule,
     EmpresaService,
     NoticiaService,
     HomeObserverService
